@@ -30,3 +30,10 @@ We *highly* recommend installing Python using Anaconda, an all-in-one installer 
 ## Related resources
 Online courses:
 - Learn Python for Data Science: https://www.datacamp.com/learn-python-with-anaconda
+
+Datasets:
+- FiveThirtyEight data repository: https://github.com/fivethirtyeight/data
+- Kaggle
+
+Articles:
+- Using Facebook to track sleeping habits: https://medium.com/@sqrendk/how-you-can-use-facebook-to-track-your-friends-sleeping-habits-505ace7fffb6
