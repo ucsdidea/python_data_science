@@ -43,8 +43,13 @@ df = pd.read_csv('caiso_historical.csv', sep=',',
 #plt.ylabel('Hourly Load [MW]')
 #plt.show()
 
-# seaborn plots
+# seaborn: distributions by HOD
 sns.violinplot(data=df, x=df.index.hour, y='CAISO', inner='quartile')
 plt.xlabel('Hour of the day')
+plt.ylabel('Load [MW]')
+plt.show()
+
+sns.violinplot(data=df, x=df.index.year, y='CAISO', inner='quartile')
+plt.xlabel('Year')
 plt.ylabel('Load [MW]')
 plt.show()
