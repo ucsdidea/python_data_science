@@ -43,13 +43,31 @@ df = pd.read_csv('caiso_historical.csv', sep=',',
 #plt.ylabel('Hourly Load [MW]')
 #plt.show()
 
-# seaborn: distributions by HOD
-sns.violinplot(data=df, x=df.index.hour, y='CAISO', inner='quartile')
-plt.xlabel('Hour of the day')
-plt.ylabel('Load [MW]')
-plt.show()
+## seaborn: distributions by HOD
+#sns.violinplot(data=df, x=df.index.hour, y='CAISO', inner='quartile')
+#plt.xlabel('Hour of the day')
+#plt.ylabel('Load [MW]')
+#plt.show()
+#
+#sns.violinplot(data=df, x=df.index.year, y='CAISO', inner='quartile')
+#plt.xlabel('Year')
+#plt.ylabel('Load [MW]')
+#plt.show()
 
-sns.violinplot(data=df, x=df.index.year, y='CAISO', inner='quartile')
-plt.xlabel('Year')
-plt.ylabel('Load [MW]')
-plt.show()
+# hour of year = doy * 24 + hod
+doy = df.index.dayofyear.values
+hod = df.index.hour.values
+hoy = (doy - 1) * 24 + hod
+year = df.index.year.values
+
+df.insert(df.shape[1], 'hoy', hoy)
+df.insert(df.shape[1], 'year', year)
+
+df.index.year = 2017
+
+print df.head()
+
+#df = pd.pivot_table(df, values='CAISO', index=df.index, columns='year')
+#
+#sns.heatmap(df, cmap='viridis')
+#plt.show()
